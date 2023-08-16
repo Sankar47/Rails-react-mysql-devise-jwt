@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>
+      Hello <%= @referral.name.capitalize %>,
+    </p>
+
+    <p>
+      Your friend <%= @user_name %>, thinks you would make one awesome DirectSHifts task. Like any good friend <%= @user_name %> wants to introuce you to something you will excel at!
+    </p>
+
+    <h2> DirectSHifts Task</h2>
+    <p>Give educators and education businesses an easy and affordable way to launch their very own online academy.</p>
+
+    <h3><%= link_to "Sign up", "http://localhost:3000/registration" %> now</h3>
+
+    <p>We are here to help get you started!</p>
+
+    <p>Sincerely,</p>
+    <p>DirectSHifts task</p>
+  </body>
+</html>

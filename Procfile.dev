@@ -1,0 +1,3 @@
+web: bin/rails server -p 3000
+js: yarn build --watch
+mailcatcher: ruby -rbundler/setup -e "Bundler.original_exec('mailcatcher', '--foreground')"
