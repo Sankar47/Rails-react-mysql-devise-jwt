@@ -3,22 +3,10 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+**bin/setup** script to setup the project on local (including  ‘bundle install’, database setup, ‘yarn/npm install’)
 
-* Ruby version
+**bin/dev** script to run the server (runs rails & react server & also mailcatcher)
 
-* System dependencies
+**Mailcather**
+Along with **localhost:3000** in browser, also open **localhost:1080** (can view mails in localhost development)
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
