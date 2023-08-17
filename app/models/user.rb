@@ -1,7 +1,10 @@
 class User < ApplicationRecord
   validates_presence_of :email
   validates_uniqueness_of :email
-  validates_format_of :email,:with => Devise::email_regexp
+  validates_email_format_of :email
+  validates :password, presence: true, length: { minimum: 6 }
+  validates :password_confirmation, presence: true
+  validates_confirmation_of :password
 
   has_many :referrals
 

@@ -10,6 +10,8 @@ import Box from '@mui/material/Box';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 const defaultTheme = createTheme();
 
@@ -21,7 +23,7 @@ class Registration extends Component {
             email: "",
             password: "",
             password_confirmation: "",
-            registration_errors: ""
+            showAlert: false
         };
         
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,7 +59,9 @@ class Registration extends Component {
                 }
             })
             .catch(error => {
-                console.log("reg err is:", error);
+                this.setState({
+                    showAlert: true
+                });
             })
         event.preventDefault();
     }
@@ -65,6 +69,21 @@ class Registration extends Component {
     render() {
         return (
             <ThemeProvider theme={defaultTheme}>
+                {this.state.showAlert && (
+                    <Snackbar open={this.state.showAlert} autoHideDuration={6000} onClose={() => this.setState({showAlert: false})} 
+                    anchorOrigin={{
+                        vertical: "top",
+                        horizontal: "center"
+                    }}>
+                        <MuiAlert
+                            onClose={() => this.setState({showAlert: false})}
+                            severity="error"
+                            sx={{ width: '100%' }}
+                        >
+                            Email format might be wrong / Password and Password Confirmation doesn't match
+                        </MuiAlert>
+                    </Snackbar>
+                )}
                 <Container component="main" maxWidth="xs">
                     <CssBaseline />
                     <Box

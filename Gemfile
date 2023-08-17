@@ -71,6 +71,9 @@ group :development do
 
   # Reading Mails
   gem 'mailcatcher'
+
+  # Email validation
+  gem 'validates_email_format_of'
 end
 
 group :test do
