@@ -48,11 +48,19 @@ class NewReferral extends Component {
                 }
             )
             .then(response => {
+<<<<<<< HEAD
                 console.log(response);
                 window.location.href = "http://localhost:3000/referrals"
             })
             .catch(error => {
                 debugger
+=======
+                // As routing was handled in rails, react Native hook will not work.
+                // navigate("/referrls")
+                window.location.href = "http://localhost:3000/referrals"
+            })
+            .catch(error => {
+>>>>>>> new_changes
                 this.setState({
                     showAlert: true
                 });

@@ -19,8 +19,14 @@ export default function Navbar() {
                 }
             )
             .then(response => {
+<<<<<<< HEAD
                 console.log(response);
                 localStorage.removeItem("token")
+=======
+                localStorage.removeItem("token")
+                // As routing was handled in rails, react Native hook will not work.
+                // navigate("/")
+>>>>>>> new_changes
                 window.location.href = "http://localhost:3000"
             })
             .catch(error => {
