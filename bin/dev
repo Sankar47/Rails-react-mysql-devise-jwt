@@ -3,4 +3,10 @@ if ! gem list foreman -i --silent; then
   gem install foreman
 fi
 
-exec foreman start -f Procfile.dev "$@"
+if [ "$(uname)" == "Darwin" ]; then
+  # Do something under Mac OS X platform    
+  exec foreman start -f Procfile1.dev "$@"
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+  # Do something under GNU/Linux platform
+  exec foreman start -f Procfile.dev "$@"
+fi

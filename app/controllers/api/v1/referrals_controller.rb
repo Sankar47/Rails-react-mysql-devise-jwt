@@ -2,17 +2,16 @@ class Api::V1::ReferralsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    referrals = current_user.referrals
-    render json: {referrals: referrals}
+    render json: { referrals: current_user.referrals }, status: :ok
   end
 
   def create
     @referral = current_user.referrals.build(referral_params)
     if @referral.save
       ReferralMailer.invite_email(@referral).deliver
-      render json: @referral
+      render json: @referral, status: :created
     else
-      render json: @referral.errors, status: 400
+      render json: @referral.errors, status: :unprocessable_entity
     end
   end
 

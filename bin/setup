@@ -26,7 +26,6 @@ FileUtils.chdir APP_ROOT do
   system! "bin/rails db:prepare"
   
   puts "\n== adding yarn =="
-  system! "npm install --global yarn"
   system! "yarn install"
 
   puts "\n== Removing old logs and tempfiles =="
